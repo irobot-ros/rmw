@@ -459,7 +459,7 @@ typedef enum RMW_PUBLIC_TYPE rmw_qos_durability_policy_e
   "RMW_QOS_POLICY_LIVELINESS_MANUAL_BY_NODE is deprecated. " \
   "Use RMW_QOS_POLICY_LIVELINESS_MANUAL_BY_TOPIC if manually asserted liveliness is needed."
 
-#ifndef _WIN32
+#ifndef _MSC_VER
 # define RMW_DECLARE_DEPRECATED(name, msg) name __attribute__((deprecated(msg)))
 #else
 # define RMW_DECLARE_DEPRECATED(name, msg) name __pragma(deprecated(name))
@@ -585,7 +585,7 @@ typedef struct RMW_PUBLIC_TYPE rmw_qos_profile_s
   struct rmw_time_s deadline;
   /// The age at which messages are considered expired and no longer valid
   /**
-    * RMW_DURATION_UNSPEFICIED will use the RMW implementation's default value,
+    * RMW_DURATION_UNSPECIFIED will use the RMW implementation's default value,
     *   which may or may not be infinite.
     * RMW_DURATION_INFINITE explicitly states that messages do not expire.
     */
@@ -594,7 +594,7 @@ typedef struct RMW_PUBLIC_TYPE rmw_qos_profile_s
   enum rmw_qos_liveliness_policy_e liveliness;
   /// The time within which the RMW node or publisher must show that it is alive
   /**
-    * RMW_DURATION_UNSPEFICIED will use the RMW implementation's default value,
+    * RMW_DURATION_UNSPECIFIED will use the RMW implementation's default value,
     *   which may or may not be infinite.
     * RMW_DURATION_INFINITE explicitly states that liveliness is not enforced.
     */

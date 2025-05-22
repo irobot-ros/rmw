@@ -15,7 +15,6 @@
 #include <stddef.h>
 
 #include "rmw/init_options.h"
-#include "rmw/localhost.h"
 #include "rmw/discovery_options.h"
 
 #ifdef __cplusplus
@@ -26,16 +25,9 @@ extern "C"
 rmw_init_options_t
 rmw_get_zero_initialized_init_options(void)
 {
-  return (const rmw_init_options_t) {
-           .domain_id = RMW_DEFAULT_DOMAIN_ID,
-           .localhost_only = RMW_LOCALHOST_ONLY_DEFAULT,
-           .discovery_options = rmw_get_zero_initialized_discovery_options(),
-           .implementation_identifier = NULL,
-           .impl = NULL,
-           .instance_id = 0,
-           .enclave = NULL,
-           .security_options = rmw_get_default_security_options(),
-  };  // NOLINT(readability/braces): false positive
+  // All members are initialized to 0 or NULL by C99 6.7.8/10.
+  static const rmw_init_options_t init_option;
+  return init_option;
 }
 
 #ifdef __cplusplus

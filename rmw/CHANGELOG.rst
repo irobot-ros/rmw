@@ -2,6 +2,51 @@
 Changelog for package rmw
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
+7.6.0 (2025-01-31)
+------------------
+* move qos_profile_rosout_default from rcl. (`#381 <https://github.com/ros2/rmw/issues/381>`_)
+* Fix ugly overwritten warning messages on error paths. (`#387 <https://github.com/ros2/rmw/issues/387>`_)
+  This mostly has to do with calling rmw_reset_error() in
+  the proper time in the tests, but we also change one
+  test for an allocator to properly check for a valid allocator.
+* Fix rmw_validate_namespace{_with_size} error handling. (`#386 <https://github.com/ros2/rmw/issues/386>`_)
+  * Fix rmw_validate_namespace{_with_size} error handling.
+  It should always set an error, even on invalid arguments.
+* Contributors: Chris Lalancette, Tomoya Fujita
+
+7.5.1 (2024-12-20)
+------------------
+* Fix arg name in rmw_take_response() doc (`#384 <https://github.com/ros2/rmw/issues/384>`_)
+* Contributors: Christophe Bedard
+
+7.5.0 (2024-10-03)
+------------------
+* Initialize the NULL strucutre with static value. (`#378 <https://github.com/ros2/rmw/issues/378>`_)
+* Contributors: Tomoya Fujita
+
+7.4.3 (2024-07-29)
+------------------
+* remove rmw_localhost_only_t. (`#376 <https://github.com/ros2/rmw/issues/376>`_)
+* Fix typo with RMW_DURATION_UNSPECIFIED (`#375 <https://github.com/ros2/rmw/issues/375>`_)
+* Fix typo in rmw_validate\_*_with_size() doc (`#374 <https://github.com/ros2/rmw/issues/374>`_)
+* Contributors: Christophe Bedard, Tomoya Fujita
+
+7.4.2 (2024-07-09)
+------------------
+* removed deprecated rmw_node_assert_liveliness() (`#373 <https://github.com/ros2/rmw/issues/373>`_)
+* Contributors: Alejandro Hernández Cordero
+
+7.4.1 (2024-06-17)
+------------------
+* add mingw support (`#370 <https://github.com/ros2/rmw/issues/370>`_)
+* Minor typo fix (`#368 <https://github.com/ros2/rmw/issues/368>`_)
+* Contributors: Felix F Xu, G.A. vd. Hoorn
+
+7.4.0 (2024-04-26)
+------------------
+* Removed warnings - strict-prototypes (`#365 <https://github.com/ros2/rmw/issues/365>`_)
+* Contributors: Alejandro Hernández Cordero
+
 7.3.2 (2025-03-12)
 ------------------
 * Added rmw_event_type_is_supported (`#395 <https://github.com/ros2/rmw/issues/395>`_) (`#396 <https://github.com/ros2/rmw/issues/396>`_)

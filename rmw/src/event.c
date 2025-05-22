@@ -24,11 +24,8 @@ extern "C" {
 rmw_event_t
 rmw_get_zero_initialized_event(void)
 {
-  const rmw_event_t event = {
-    .implementation_identifier = NULL,
-    .data = NULL,
-    .event_type = RMW_EVENT_INVALID
-  };  // NOLINT(readability/braces): false positive
+  // All members are initialized to 0 or NULL by C99 6.7.8/10.
+  static const rmw_event_t event;
   return event;
 }
 
